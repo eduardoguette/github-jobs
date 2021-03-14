@@ -1,7 +1,7 @@
 # Javascript GitHub Jobs
 Cotizador de criptomonedas utilizando Javascript, practica del curso [JavaScript Moderno Guía Definitiva Construye +15 Proyectos](https://www.udemy.com/course/javascript-moderno-guia-definitiva-construye-10-proyectos/)
  
-<!-- ## [LIVE DEMO / PRUEBALO AQUÍ]() ✔ -->
+## [LIVE DEMO / PRUEBALO AQUÍ](https://eduardoguette.github.io/github-jobs/) ✔
 API [GitHub Jobs](https://jobs.github.com/positions.json?description=&location=&page=1)
 
 ## En construcción
