@@ -6,6 +6,8 @@
     content="IE=edge">
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0">
+  <meta name="Description"
+    content="Author: Eduardo Guette | Jobboard GitHub">
   <link rel="preconnect"
     href="https://fonts.gstatic.com">
   <link
@@ -16,9 +18,9 @@
     href="./css/styles.css">
 </head>
 <body>
-  <header class="header">
+  <header class="header md:rounded-l-b">
     <div class="wrapper">
-      <div class="header__content md:rounded-l-b ">
+      <div class="header__content  ">
         <div class="logo">
           <h1 class="logo__title">devjobs</h1>
         </div>
@@ -46,14 +48,22 @@
       <div class="wrapper">
         <div class="form__content">
           <form>
-            <div class="form-control">
-              <label for="job"></label>
+            <div class="form-control ">
+              <label for="title">
+                <img class="hidden md:block"
+                  width="15"
+                  height="15"
+                  src="./static/icons/finder.svg"
+                  alt="find">
+              </label>
               <input type="text"
-                name="job"
-                id="job"
+                name="title"
+                id="title"
                 placeholder="Filter by title, compaines, expertise">
             </div>
-            <button class="btn-filter md:hidden" type="button">
+            <button aria-label="filtro"
+              class="btn-filter md:hidden"
+              type="button">
               <svg xmlns="http://www.w3.org/2000/svg"
                 enable-background="new 0 0 24 24"
                 viewBox="0 0 24 24"
@@ -70,7 +80,13 @@
               </svg>
             </button>
             <div class="form-control hidden md:flex">
-              <label for="location"></label>
+              <label for="location">
+                <img class="hidden md:block"
+                  width="15"
+                  height="15"
+                  src="./static/icons/location.svg"
+                  alt="location">
+              </label>
               <input type="text"
                 name="location"
                 id="location"
@@ -82,9 +98,11 @@
                 id="jobtype">
               <label for="jobtype">Full Time Only</label>
             </div>
-            <button class="btn-submit"
+            <button aria-label="submit-busqueda"
+              class="btn-submit"
               type="submit">
-              <span aria-describedby="logo-mobile">
+              <span class="block md:hidden"
+                aria-describedby="logo-mobile">
                 <svg xmlns="http://www.w3.org/2000/svg"
                   enable-background="new 0 0 24 24"
                   viewBox="0 0 18 18"
@@ -96,8 +114,8 @@
                     fill="white" />
                 </svg>
               </span>
-              <span aria-describedby="text-desktop">
-
+              <span class="hidden md:block"
+                aria-describedby="text-desktop">
                 Search
               </span>
             </button>
@@ -107,13 +125,22 @@
     </section>
     <section class="results">
       <div class="wrapper">
-        <div class="result__content">
-
+        <div class="results__content">
+          
+        </div>
+      </div>
+    </section>
+    <section class="pagination">
+      <div class="wrapper">
+        <div class="pagination__content">
+          <button aria-label="button more jobs" class="btn-loadmore">Load more</button>
         </div>
       </div>
     </section>
   </main>
   <footer></footer>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   <script src="./js/main.js"></script>
 </body>
 </html>
