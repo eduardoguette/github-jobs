@@ -13,6 +13,9 @@ const inputLocation = document.querySelector('#location')
 const inputJobType = document.querySelector('#jobtype')
 const htmlJobs = document.querySelector('.results__content')
 const btnLoadMore = document.querySelector('.btn-loadmore')
+const btnFilter = document.querySelector('.btn-filter')
+const header = document.querySelector('header')
+
 const job = {
   title: '',
   location: '',
@@ -31,12 +34,28 @@ inputLocation.addEventListener('change', leerInfo)
 inputJobType.addEventListener('change', leerInfo)
 
 formulario.addEventListener('submit', busqueda)
+
 btnLoadMore.addEventListener('click', getJobs)
+btnFilter.addEventListener('click', filterJobs)
+inputJob.addEventListener('click', nofilterJobs)
+htmlJobs.addEventListener('click', nofilterJobs)
+// header.addEventListener('click', nofilterJobs)
+
+window.addEventListener("resize", nofilterJobs)
+
+function nofilterJobs() {
+  formulario.classList.remove('active')
+}
+function filterJobs() {
+  formulario.classList.toggle('active')
+}
+
 function busqueda(e) {
   e.preventDefault()
   limpiarHTML()
   page = 1
   getJobs()
+  formulario.classList.remove('active')
 }
 function leerInfo(e) {
   job[e.target.name] = e.target.value
@@ -57,6 +76,7 @@ function getJobs() {
 }
 
 function mostrarJobs(jobs) {
+  formulario.classList.remove('active')
   noPagination(jobs)
   const logoError = '../static/icons/error-circle-solid-24.png'
 

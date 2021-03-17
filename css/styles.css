@@ -26,6 +26,49 @@ body.darkmode {
   background: var(--black);
 }
 
+body.darkmode form.active .full-time {
+  background: var(--black-opacity);
+}
+
+body.darkmode form.active .full-time label {
+  position: relative;
+  color: var(--black);
+}
+
+body.darkmode form.active .full-time label::before {
+  margin-left: 10px;
+}
+
+body.darkmode form.active .full-time label::after {
+  background: var(--black-opacity);
+}
+
+body.darkmode .form__content {
+  background: var(--black-opacity);
+}
+
+body.darkmode .form__content .form-control input {
+  background: var(--black-opacity);
+  color: var(--gray);
+}
+
+body.darkmode .form__content .form-control.full-time label {
+  color: var(--gray);
+}
+
+body.darkmode .form__content .form-control.full-time label::before {
+  border: 2px solid #e0e0e0;
+  margin: 0;
+}
+
+body.darkmode .card-job {
+  background: var(--black-opacity);
+}
+
+body.darkmode .card-job__title a {
+  color: var(--gray);
+}
+
 .header {
   background: var(--primary-color);
 }
@@ -88,6 +131,7 @@ body.darkmode {
   background: var(--white);
   border-radius: 30px;
   position: relative;
+  cursor: pointer;
 }
 
 .header__content .darkmode label::before {
@@ -145,8 +189,48 @@ body.darkmode {
   position: relative;
   top: -45px;
   border-radius: 8px;
-  overflow: hidden;
   padding: 0 0.8em;
+}
+
+.form__content form.active .full-time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 4em;
+  display: flex;
+  right: 4em;
+  background: white;
+  padding: 5px;
+  width: 150px;
+  height: 2em;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  z-index: 2;
+}
+
+.form__content form.active .full-time label {
+  position: relative;
+  margin-left: 20px;
+}
+
+.form__content form.active .full-time label::before {
+  border: 1px solid #e0e0e0;
+}
+
+.form__content form.active .full-time label::after {
+  content: '';
+  position: absolute;
+  height: 17px;
+  width: 17px;
+  background: white;
+  top: -20px;
+  right: 0.5em;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  z-index: -1;
+  border-top: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
 }
 
 .form__content form {
@@ -198,25 +282,54 @@ body.darkmode {
 
 .form__content form .form-control.full-time input {
   max-width: 20px;
+  visibility: hidden;
+}
+
+.form__content form .form-control.full-time input:checked ~ label:before {
+  height: 20px;
+  width: 20px;
+  color: var(--primary-color);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%235964e0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check-circle'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/%3E%3Cpolyline points='22 4 12 14.01 9 11.01'/%3E%3C/svg%3E") center center no-repeat;
+  background-size: cover;
+  border-color: transparent;
+  -webkit-animation: rotate 0.4s linear;
+          animation: rotate 0.4s linear;
 }
 
 .form__content form .form-control.full-time label {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
   font-weight: 600;
   font-size: 0.9em;
   white-space: nowrap;
+  position: relative;
+  margin-left: 20px;
+}
+
+.form__content form .form-control.full-time label::before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  left: -30px;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  border-radius: 100%;
+  border: 3px solid rgba(0, 0, 0, 0.2);
 }
 
 .form__content form .btn-filter {
-  background: white;
+  background: transparent;
   border-radius: 5px;
   width: 50px;
   height: 50px;
   border: none;
   margin: auto;
-}
-
-.form__content form .btn-filter:hover svg {
-  fill: var(--black);
 }
 
 .form__content form .btn-filter svg {
@@ -377,7 +490,7 @@ body.darkmode {
   color: var(--violet-opacity);
   border: none;
   cursor: pointer;
-  padding: .8em 1.4em;
+  padding: 0.8em 1.4em;
   border-radius: 5px;
 }
 
@@ -419,6 +532,36 @@ body.darkmode {
 @media (prefers-color-sheme: dark) {
   body {
     background: var(--black);
+  }
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(-100deg) scale(0.8);
+            transform: rotate(-100deg) scale(0.8);
+  }
+  50% {
+    -webkit-transform: rotate(40deg) scale(0.9);
+            transform: rotate(40deg) scale(0.9);
+  }
+  to {
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(-100deg) scale(0.8);
+            transform: rotate(-100deg) scale(0.8);
+  }
+  50% {
+    -webkit-transform: rotate(40deg) scale(0.9);
+            transform: rotate(40deg) scale(0.9);
+  }
+  to {
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
   }
 }
 /*# sourceMappingURL=styles.css.map */
