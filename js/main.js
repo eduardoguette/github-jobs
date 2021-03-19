@@ -59,7 +59,6 @@ function busqueda(e) {
 }
 function leerInfo(e) {
   job[e.target.name] = e.target.value
-  console.log(job)
 }
 
 getJobs()
@@ -69,20 +68,15 @@ function getJobs() {
   jobtype === 'on' ? (jobtype = true) : (jobtype = false)
   const jobsite = `https://jobs.github.com/positions.json?description=${title}&location=${location}&full_time=${jobtype}&page=${page}`
   const url = `https://api.allorigins.win/get?url=${encodeURIComponent(jobsite)}`
-  axios.get(url).then((response) => {
-    console.log(response)
-    // console.log(response.data.contents)
-    mostrarJobs(JSON.parse(response.data.contents))
-  })
+  axios.get(url).then((response) => mostrarJobs(JSON.parse(response.data.contents)))
   page++
 }
 
 function mostrarJobs(jobs) {
   formulario.classList.remove('active')
   if (jobs.length > 0) {
-    if(document.querySelector('.spinner'))
-    document.querySelector('.spinner').remove()
-    btnLoadMore.classList.remove("hidden")
+    if (document.querySelector('.spinner')) document.querySelector('.spinner').remove()
+    btnLoadMore.classList.remove('hidden')
     noPagination(jobs)
     const logoError = '../static/icons/error-circle-solid-24.png'
     jobs.forEach((job) => {
@@ -123,8 +117,7 @@ function mostrarJobs(jobs) {
      <img width="300" src="https://media2.giphy.com/media/V0E9fl9dPKWWI/giphy.gif?cid=ecf05e47ld9aubiebvneh5zb14uo3l1u5t9th0x4y9hqusdb&rid=giphy.gif" alt="no more jobs image"/>
      <p class="text-no-results">No results</p>
     `
-    if(document.querySelector('.spinner'))
-    document.querySelector('.spinner').remove()
+    if (document.querySelector('.spinner')) document.querySelector('.spinner').remove()
     btnLoadMore.style.opacity = 0
   }
 }
@@ -138,8 +131,7 @@ function noPagination(jobs) {
 }
 
 function spinner() {
-  
-  btnLoadMore.classList.add("hidden")
+  btnLoadMore.classList.add('hidden')
   const div = document.createElement('div')
   div.className = 'spinner'
   document.querySelector('.pagination__content').appendChild(div)
