@@ -57,7 +57,8 @@ function busqueda(e) {
   getJobs()
   formulario.classList.remove('active')
 }
-function leerInfo(e) {
+function leerInfo(e) { 
+  
   job[e.target.name] = e.target.value
 }
 
