@@ -390,7 +390,10 @@ body.darkmode {
     }
   }
 }
-
+.no-results {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
 .hidden {
   display: none;
 }
@@ -417,7 +420,19 @@ body.darkmode {
     grid-template-columns: repeat(2, minmax(100px, 500px)) minmax(150px, 180px) minmax(50px, 100px);
   }
 }
-
+.spinner {
+  height: 50px;
+  width: 50px;
+  border: 5px solid var(--primary-color);
+  border-top-color: var(--gray-dark);
+  border-radius: 50px;
+  animation: rotateSpinner 0.7s linear infinite;
+}
+@keyframes rotateSpinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
 @media (prefers-color-sheme: dark) {
   body {
     background: var(--black);

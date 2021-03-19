@@ -498,6 +498,12 @@ body.darkmode .card-job__title a {
   background: var(--secunday-color);
 }
 
+.no-results {
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  justify-items: center;
+}
+
 .hidden {
   display: none;
 }
@@ -526,6 +532,30 @@ body.darkmode .card-job__title a {
   .form__content form {
     -ms-grid-columns: (minmax(100px, 500px))[2] minmax(150px, 180px) minmax(50px, 100px);
         grid-template-columns: repeat(2, minmax(100px, 500px)) minmax(150px, 180px) minmax(50px, 100px);
+  }
+}
+
+.spinner {
+  height: 50px;
+  width: 50px;
+  border: 5px solid var(--primary-color);
+  border-top-color: var(--gray-dark);
+  border-radius: 50px;
+  -webkit-animation: rotateSpinner 0.7s linear infinite;
+          animation: rotateSpinner 0.7s linear infinite;
+}
+
+@-webkit-keyframes rotateSpinner {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateSpinner {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
