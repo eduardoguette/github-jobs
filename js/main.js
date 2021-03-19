@@ -121,7 +121,7 @@ function mostrarJobs(jobs) {
     htmlJobs.classList.add('no-results')
     htmlJobs.innerHTML = `
      <img width="300" src="https://media2.giphy.com/media/V0E9fl9dPKWWI/giphy.gif?cid=ecf05e47ld9aubiebvneh5zb14uo3l1u5t9th0x4y9hqusdb&rid=giphy.gif" alt="no more jobs image"/>
-     <p>No results</p>
+     <p class="text-no-results">No results</p>
     `
     if(document.querySelector('.spinner'))
     document.querySelector('.spinner').remove()

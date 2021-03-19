@@ -66,6 +66,9 @@ body.darkmode {
       }
     }
   }
+  .text-no-results {
+    color: var(--gray)
+  }
 }
 @mixin wrapper {
   margin: 0 25px;

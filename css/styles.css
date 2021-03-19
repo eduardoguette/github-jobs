@@ -69,6 +69,10 @@ body.darkmode .card-job__title a {
   color: var(--gray);
 }
 
+body.darkmode .text-no-results {
+  color: var(--gray);
+}
+
 .header {
   background: var(--primary-color);
 }
